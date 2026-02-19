@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap");
+
+/* ─── إعادة ضبط الأساس ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ألوان الهوية – مؤسسة الوقف الخيري */
+  --purple:         #5C2D91;
+  --purple-hover:   #4A2478;
+  --purple-light:   #7B4FBB;
+  --purple-xlight:  #EDE7F6;
+  --purple-faint:   #F5F2FB;
+
+  --bg:             #FFFFFF;
+  --card-bg:        #FFFFFF;
+  --card-border:    #E5DFF0;
+  --section-bg:     #F8F6FC;
+
+  --text-primary:   #1A1035;
+  --text-secondary: #4E3A6B;
+  --text-muted:     #8B7AAA;
+
+  --green:          #10b981;
+  --green-bg:       rgba(16, 185, 129, 0.08);
+  --red:            #e53935;
+  --red-bg:         rgba(229, 57, 53, 0.08);
+  --amber:          #f59e0b;
+  --amber-bg:       rgba(245, 158, 11, 0.08);
+
+  --radius:         12px;
+  --shadow:         0 2px 16px rgba(92, 45, 145, 0.10);
+  --shadow-sm:      0 1px 6px rgba(92, 45, 145, 0.07);
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Tajawal", "Segoe UI", Tahoma, sans-serif;
+  background: var(--section-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ─── شريط التمرير ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--section-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #D0C2E8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-light);
+}
+
+/* ─── الروابط ─── */
+a {
+  color: var(--purple);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--purple-light);
+}
+
+/* ─── حاوية عامة ─── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ─── البطاقات ─── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── شارة الربح/الخسارة ─── */
+.badge-profit {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.badge-profit.positive {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+}
+.badge-profit.negative {
+  background: var(--red-bg);
+  color: var(--red);
+  border: 1px solid rgba(229, 57, 53, 0.22);
+}
+.badge-profit.pending {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+}
+
+/* ─── الجداول ─── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.data-table th {
+  background: var(--purple-xlight);
+  color: var(--purple);
+  font-weight: 700;
+  padding: 0.9rem 1rem;
+  text-align: right;
+  border-bottom: 2px solid var(--card-border);
+  white-space: nowrap;
+}
+.data-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #EEE9F6;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+.data-table tr:hover td {
+  background: var(--purple-faint);
+}
+
+/* ─── زر ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.55rem 1.3rem;
+  border-radius: 8px;
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-gold {
+  background: var(--purple);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(92, 45, 145, 0.25);
+}
+.btn-gold:hover {
+  background: var(--purple-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(92, 45, 145, 0.35);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--purple);
+  border: 1.5px solid var(--purple);
+}
+.btn-outline:hover {
+  background: var(--purple-xlight);
+}
+
+/* ─── تأثير تحميل ─── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.skeleton {
+  background: #E8E2F4;
+  border-radius: 6px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+/* ─── فاصل بنفسجي ─── */
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--purple-light), transparent);
+  margin: 1.5rem 0;
+  opacity: 0.35;
+}
+
+/* ─── شبكة بطاقات ─── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+/* ─── استجابة الشاشات ─── */
+@media (max-width: 768px) {
+  .data-table {
+    font-size: 0.78rem;
+  }
+  .data-table th,
+  .data-table td {
+    padding: 0.65rem 0.5rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
