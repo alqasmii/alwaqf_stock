@@ -239,7 +239,7 @@ export default function StockPage({
         <StockChart
           purchasePrice={pos.purchase_price}
           currentPrice={pos.live_price ?? pos.purchase_price}
-          stockSymbol={pos.msx_symbol}
+          stockSymbol={pos.msx_symbol ?? undefined}
           nameAr={pos.name_ar}
           nameEn={pos.name_en}
           isPending={pos.is_pending}
