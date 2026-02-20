@@ -207,13 +207,13 @@ export function buildSummary(positions: ReturnType<typeof calculatePosition>[]) 
 // ─── Fetch all prices in parallel ─────────────────────────────────────────────
 
 export async function fetchAllPrices(): Promise<Record<string, number | null>> {
-  const tickers = [
-    ...new Set(
+  const tickers = Array.from(
+    new Set(
       PORTFOLIO.filter((p) => !p.pending && p.msx_symbol).map(
         (p) => p.msx_symbol as string
       )
-    ),
-  ];
+    )
+  );
   const entries = await Promise.all(
     tickers.map(async (t) => [t, await fetchLivePrice(t)] as const)
   );
